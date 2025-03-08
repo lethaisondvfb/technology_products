@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S.technology - Sản phẩm</title>
+    <link rel="stylesheet" type="text/css" href="styles.css/styles_sp.css" />
+    <link rel="icon" type="image/x-icon" href="images/S.ico" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <h1>Chào Mừng Bạn Đến Với Cửa Hàng Công Nghệ Thông Minh</h1>
+      <h2>S.technology Products Shop</h2>
+      <img
+        src="images/banner.gif"
+        alt="Banner chào mừng cửa hàng"
+        class="banner"
+      />
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <table>
+        <tr>
+          <td><a href="index.html" id="trang-chu">Trang chủ</a></td>
+          <td>
+            <a href="sanpham.html" id="san-pham" class="active">Sản phẩm</a>
+          </td>
+          <td><a href="giohang.html" id="gio-hang">Giỏ hàng</a></td>
+          <td><a href="#" id="lien-he">Liên hệ</a></td>
+        </tr>
+      </table>
+    </nav>
+
+    <!-- Danh sách sản phẩm -->
+    <main class="product-grid">
+      <div class="product-item">
+        <img src="images/mayhutbui1.jpg" alt="máy hút bụi" />
+        <h3>Máy hút bụi thông minh</h3>
+        <p>Giá: 6.100.000 VNĐ</p>
+        <button class="view-details" data-product-id="1">Xem chi tiết</button>
+      </div>
+
+      <div class="product-item">
+        <img src="images/hutbuicamtay.jpg" alt="máy hút bụi cầm tay" />
+        <h3>Máy hút bụi cầm tay Tinesco</h3>
+        <p>Giá: 5.200.000 VNĐ</p>
+        <button class="view-details" data-product-id="2">Xem chi tiết</button>
+      </div>
+
+      <div class="product-item">
+        <img src="images/cmr.jpg" alt="camera1" />
+        <h3>Camera Aqara Hub G5 Pro AI</h3>
+        <p>Giá: 900.000 VNĐ</p>
+        <button class="view-details" data-product-id="3">Xem chi tiết</button>
+      </div>
+
+      <div class="product-item">
+        <img src="images/khoavantay.jpg" alt="khóa vân tay" />
+        <h3>Khóa vân tay BOSCH FU550</h3>
+        <p>Giá: 15.100.000 VNĐ</p>
+        <button class="view-details" data-product-id="4">Xem chi tiết</button>
+      </div>
+
+      <div class="product-item">
+        <img src="images/maylockokhi.jpg" alt="máy lọc không khí" />
+        <h3>Máy lọc không khí Xiaomi Air4</h3>
+        <p>Giá: 3.990.000 VNĐ</p>
+        <button class="view-details" data-product-id="5">Xem chi tiết</button>
+      </div>
+
+      <div class="product-item">
+        <img src="images/chuong_cua_man_hinh.jpg" alt="chuông cửa màn hình" />
+        <h3>Bộ chuông cửa màn hình Panasonic</h3>
+        <p>Giá: 7.450.000 VNĐ</p>
+        <button class="view-details" data-product-id="6">Xem chi tiết</button>
+      </div>
+
+      <div class="product-item">
+        <img src="images/maysayquanao.jpg" alt="máy sấy quần áo" />
+        <h3>Máy sấy quần áo có điều khiển</h3>
+        <p>Giá: 990.000 VNĐ</p>
+        <button class="view-details" data-product-id="7">Xem chi tiết</button>
+      </div>
+
+      <div class="product-item">
+        <img src="images/ghematxa.jpg" alt="ghế matxa" />
+        <h3>Ghế matxa toàn thân điều khiển giọng nói</h3>
+        <p>Giá: 9.990.000 VNĐ</p>
+        <button class="view-details" data-product-id="8">Xem chi tiết</button>
+      </div>
+    </main>
+
+    <!-- Modal sản phẩm -->
+    <div id="product-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div class="modal-grid">
+          <div class="modal-image-container">
+            <img id="modal-image" src="" alt="" />
+          </div>
+          <div class="modal-details">
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+
+            <!-- Chọn màu sản phẩm -->
+            <div class="color-options">
+              <label>Chọn màu:</label>
+              <div class="color-swatches">
+                <div class="color-swatch" data-color="white">Trắng</div>
+                <div class="color-swatch" data-color="blue">Xanh</div>
+                <div class="color-swatch" data-color="black">Đen</div>
+              </div>
+            </div>
+
+            <!-- Chọn số lượng sản phẩm -->
+            <div class="quantity-selector">
+              <label for="product-quantity">Số lượng:</label>
+              <button class="quantity-btn" id="decrease-qty">-</button>
+              <input type="number" id="product-quantity" value="1" min="1" />
+              <button class="quantity-btn" id="increase-qty">+</button>
+            </div>
+
+            <button class="add-to-cart">Thêm vào giỏ hàng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thông báo giỏ hàng -->
+    <div id="cart-toast" class="cart-toast hidden">
+      <p id="cart-toast-message"></p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <p>
+            Địa chỉ: 29A Ngõ 124 Phố Vĩnh Tuy, Thanh Long, Hai Bà Trưng, Hà Nội,
+            Việt Nam
+          </p>
+          <p>Điện thoại: 0123 456 789</p>
+          <p>Email: lethaison.dvfb@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 LeThaiSon. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script_sp.js"></script>
+  </body>
+</html>

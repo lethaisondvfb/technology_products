@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S.technology - Giỏ hàng</title>
+    <link rel="stylesheet" type="text/css" href="styles.css/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="styles.css/style_giohang.css"
+    />
+    <link rel="icon" type="image/x-icon" href="images/S.ico" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <h1>Chào Mừng Bạn Đến Với Cửa Hàng Công Nghệ Thông Minh</h1>
+      <h2>S.technology Products Shop</h2>
+      <img
+        src="images/banner.gif"
+        alt="Banner chào mừng cửa hàng"
+        class="banner"
+      />
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <table>
+        <tr>
+          <td><a href="index.html" id="trang-chu">Trang chủ</a></td>
+          <td><a href="sanpham.html" id="san-pham">Sản phẩm</a></td>
+          <td>
+            <a href="giohang.html" id="gio-hang" class="active">Giỏ hàng</a>
+          </td>
+          <td><a href="lienhe.html" id="lien-he">Liên hệ</a></td>
+        </tr>
+      </table>
+    </nav>
+
+    <!-- Main Giỏ Hàng -->
+    <main class="cart-container">
+      <section id="gio-hang">
+        <h2>🛒 Giỏ Hàng Của Bạn</h2>
+
+        <!-- Checkbox "Chọn tất cả" -->
+        <div id="select-all-container">
+          <label> <input type="checkbox" id="select-all" /> Chọn tất cả </label>
+        </div>
+
+        <div id="cart-container">
+          <table id="cart-table">
+            <thead>
+              <tr>
+                <th>Chọn</th>
+                <th>Ảnh</th>
+                <th>Tên Sản Phẩm</th>
+                <th>Màu</th>
+                <th>Số Lượng</th>
+                <th>Giá</th>
+                <th>Tổng</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody id="cart-items">
+              <!-- Sản phẩm sẽ được thêm vào đây bằng JavaScript -->
+            </tbody>
+          </table>
+
+          <div class="cart-summary">
+            <h3>Tổng tiền: <span id="total-price">0</span> VNĐ</h3>
+            <button id="clear-cart">🗑️ Xóa Giỏ Hàng</button>
+            <button id="place-order">📦 Đặt Hàng</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+
+    <!-- 🛑 Hộp thoại xác nhận xóa giỏ hàng -->
+    <div class="confirm-overlay" id="confirm-overlay"></div>
+    <div class="confirm-dialog" id="confirm-dialog">
+      <h3>Bạn có chắc chắn muốn xóa toàn bộ giỏ hàng không?</h3>
+      <div class="confirm-buttons">
+        <button class="confirm-btn ok" id="confirm-ok">OK</button>
+        <button class="confirm-btn cancel" id="confirm-cancel">Hủy</button>
+      </div>
+    </div>
+    <div class="notification" id="notification"></div>
+
+    <!-- 🛍️ Form Xác Nhận Đơn Hàng -->
+    <div id="order-form-container" class="order-form-overlay">
+      <div class="order-form">
+        <h2>📋 Xác Nhận Đơn Hàng</h2>
+        <form id="order-form">
+          <label for="customer-name">Họ và Tên:</label>
+          <input type="text" id="customer-name" required />
+
+          <label for="customer-phone">Số Điện Thoại:</label>
+          <input type="tel" id="customer-phone" required />
+
+          <label for="customer-address">Địa Chỉ Giao Hàng:</label>
+          <textarea id="customer-address" required></textarea>
+
+          <div class="order-form-buttons">
+            <button type="submit" class="confirm-order-btn">✅ Xác Nhận</button>
+            <button type="button" id="cancel-order" class="cancel-order-btn">
+              ❌ Hủy
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <p>
+            Địa chỉ: 29A Ngõ 124 Phố Vĩnh Tuy, Thanh Long, Hai Bà Trưng, Hà Nội,
+            Việt Nam
+          </p>
+          <p>Điện thoại: 0123 456 789</p>
+          <p>Email: lethaison.dvfb@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 LeThaiSon. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="js/script_giohang.js"></script>
+  </body>
+</html>

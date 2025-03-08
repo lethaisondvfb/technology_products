@@ -1,0 +1,392 @@
+/* 🌟 Định dạng chung */
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* 🛒 Phần chứa giỏ hàng */
+.cart-container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+/* 📦 Bảng giỏ hàng */
+.cart-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 25px 15px; /* ✅ Tăng mạnh khoảng cách ngang */
+    margin-bottom: 25px;
+    table-layout: auto;
+}
+
+/* 📌 Chỉnh khoảng cách lớn hơn giữa các ô */
+.cart-table th, .cart-table td {
+    padding: 25px; /* ✅ Tăng khoảng cách giữa các ô */
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* 📌 Header bảng */
+.cart-table th {
+    background-color: #2c3e50;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 24px;
+}
+
+/* 📷 Ảnh sản phẩm */
+.cart-img {
+    width: 110px; /* ✅ Tăng kích thước ảnh */
+    height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    padding: 6px;
+}
+
+/* 🔢 Cột số lượng có khoảng cách rộng hơn */
+.cart-table td:nth-child(5) {
+    min-width: 180px;
+}
+
+/* 💰 Cột giá và tổng giá có khoảng cách rộng hơn */
+.cart-table td:nth-child(6) {
+    min-width: 220px;  /* ✅ Cột "Giá" rộng hơn nữa */
+    text-align: right;
+    font-weight: bold;
+}
+
+.cart-table td:nth-child(7) {
+    min-width: 250px;  /* ✅ Cột "Tổng" rộng hơn nữa */
+    text-align: right;
+    font-weight: bold;
+    color: #e67e22;
+}
+
+/* 🔼🔽 Nút tăng giảm số lượng */
+.qty-btn {
+    cursor: pointer;
+    padding: 14px 18px;
+    border: none;
+    background: #3498db;
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+    margin: 0 10px;
+    transition: background 0.3s;
+}
+
+.qty-btn:hover {
+    background: #217dbb;
+}
+
+.quantity {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+}
+
+/* ❌ Nút xóa */
+.remove-item {
+    cursor: pointer;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 14px 18px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+.remove-item:hover {
+    background: #c0392b;
+}
+
+/* 🏷 Tổng tiền */
+.cart-summary {
+    text-align: right;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 30px;
+    padding-right: 20px;
+}
+
+/* 🛒 Nút xóa giỏ hàng và thanh toán */
+#clear-cart, #checkout {
+    background-color: #27ae60;
+    color: white;
+    padding: 18px 28px;
+    border: none;
+    font-size: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+#clear-cart {
+    background-color: #e74c3c;
+}
+
+#clear-cart:hover {
+    background-color: #c0392b;
+}
+
+#checkout:hover {
+    background-color: #219150;
+}
+
+/* 📱 Responsive (dành cho màn hình nhỏ) */
+@media (max-width: 768px) {
+    .cart-container {
+        width: 98%;
+        padding: 20px;
+    }
+
+    .cart-table {
+        border-spacing: 18px; /* ✅ Giảm khoảng cách trên mobile */
+    }
+
+    .cart-table th, .cart-table td {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    /* 📷 Ảnh sản phẩm nhỏ hơn trên mobile */
+    .cart-img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .qty-btn, .remove-item, #clear-cart, #checkout {
+        font-size: 16px;
+        padding: 14px 20px;
+    }
+}
+/* 🛑 Hộp thoại xác nhận xóa giỏ hàng */
+.confirm-dialog {
+    display: none; /* Mặc định ẩn */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 320px;
+    z-index: 1001;
+}
+
+.confirm-dialog h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.confirm-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.confirm-btn.ok {
+    background: #1fc110;
+    color: white;
+}
+
+.confirm-btn.cancel {
+    background: #283d4b8d;
+    color: white;
+}
+
+/* 🔲 Nền mờ khi hiển thị hộp thoại */
+.confirm-overlay {
+    display: none; /* Ẩn khi chưa kích hoạt */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Mờ nền */
+    z-index: 1000;
+}
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    display: none; /* Ẩn mặc định */
+    z-index: 1002;
+  }
+/* 🛍️ Nút Đặt Hàng */
+#place-order {
+    background-color: #f39c12; /* Màu cam nổi bật */
+    color: white;
+    padding: 18px 28px;
+    border: none;
+    font-size: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#place-order:hover {
+    background-color: #e67e22;
+    transform: scale(1.05); /* Hiệu ứng phóng to nhẹ */
+}
+
+#place-order:active {
+    transform: scale(0.95); /* Hiệu ứng nhấn */
+}
+
+/* 📱 Responsive cho mobile */
+@media (max-width: 768px) {
+    #place-order {
+        font-size: 16px;
+        padding: 14px 20px;
+    }
+}
+
+/* 🛍️ Form Xác Nhận Đơn Hàng */
+.order-form-overlay {
+    display: none; /* Mặc định ẩn */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Mờ nền */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.order-form h2 {
+    margin-bottom: 15px;
+}
+
+.order-form label {
+    display: block;
+    margin: 8px 0 5px;
+    font-weight: bold;
+}
+
+.order-form input, .order-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.order-form-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.confirm-order-btn {
+    background: #27ae60;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-order-btn {
+    background: #e74c3c;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.confirm-order-btn:hover {
+    background: #219150;
+}
+
+.cancel-order-btn:hover {
+    background: #c0392b;
+}
+#order-form-container {
+    display: none; /* Ẩn form ngay khi vào trang */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+footer {
+    height: 130px;
+    background-color: #5d1313eb;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    color: #ab2020;
+    border-top: 1px solid #eee;
+}
+.footer-content {
+    font-weight: bold;
+    color:orange;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+
+.footer-section {
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #3498db; /* Màu xanh dương */
+}

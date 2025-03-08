@@ -1,0 +1,87 @@
+/* Khai báo reset CSS cơ bản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Navigation */
+nav {
+  background-color: #444;
+  padding: 15px;
+}
+
+nav table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+nav td {
+  border-right: 1px solid white;
+}
+
+nav td:last-child {
+  border-right: none;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Products */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.product-table img {
+  max-width: 150px;
+  height: auto;
+}
+
+/* Buttons */
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  clear: both;
+}
